@@ -1,0 +1,219 @@
+@font-face { /* Importing font for body text */
+    font-family: MyFont;
+    src: url(Fonts/CormorantInfant-Light.ttf);
+    font-weight: normal; /* specifying font weight to be able to differentiate title and body font */
+}
+
+@font-face { /* Importing font for title text */
+    font-family: MyFont;
+    src: url(Fonts/Hatolie.ttf);
+    font-weight: bold;
+}
+
+* { /* used this to remove any gaps on top and bottom of the screen */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body { /* used a background image i created in figma for the background of the whole page. */ 
+    background-color: #0e2331;
+    background-image: url(Images/Background.png);
+    background-size: cover;
+    background-repeat: no-repeat; /* to make sure the background has no repetition */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    margin: 0;
+}
+
+::-webkit-scrollbar {
+    display: none; /* making scrollbar invisible but keeping scrolling function. This was a design choice */
+}
+
+.landing {
+    height: 100vh; /* 100% of the viewport height to make sure the landing page shows only the intended content */
+    background-image: url(Images/finalbg.png); /* background texture i created in figma that repeats into a tile wallpaper. (backround repeat is automatically set to yes, so i did not specify) */
+}
+
+.heading { /* styling the heading */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%); /* previous four lines are used to center my text in the middle of the screen  */
+    font-size: 100px;
+    font-family: MyFont; 
+    font-weight: bold; /* specifying the font i want to display */
+    color: #e9d6b7;
+    text-align: center;
+    line-height: 145px;
+    text-shadow: 0px 0px 25px #f3d6a7; /* creating a glowing effect on my text */
+    animation: flyIn 2s ease-out; /* using fade in animation on startup to make website more appealing */
+}
+
+
+@keyframes flyIn { /* setting keyframes for animation used for heading */
+    0% {
+        transform: translateY(100%) translateX(-50%);
+        
+    }
+
+    100% {
+        transform: translateY(-50%) translateX(-50%);
+    }
+}
+
+
+.navbar { /* styling my navigation bar */
+    z-index: 1; /* makes sure that the nav bar is visible on top of all other elements of the page */
+    position: fixed; /* follows while scrolling */
+    font-family: MyFont;
+    font-weight: normal;
+    font-size: x-large;
+    right: 10px;
+    top: 25px; /* setting fixed position on screen */
+    display: flex; /* displaying elements horizontally */
+}
+
+.nav a { /* styling the links within the navbar */
+    color: #DFD0B8;
+    padding: 10px 20px;
+    text-decoration: none; /* removes the underline from the link */
+    display: block;
+    text-shadow: 4px 6px 5px #080a14; /* subtle text shadow to add depth */
+    transition: text-shadow 0.2s; /* fading in the hover effect */
+}
+
+.nav a:hover { /* effect while cursor hovers over the link */
+    color: #DFD0B8;
+    text-shadow: 0px 0px 7px #dddde0; /* glowing effect that highlights the link that is being hovered over */
+}
+
+.home { /* styling logo  */
+    z-index: 1; /* making sure logo is visible on top of all other elements */
+    font-family: MyFont; 
+    font-weight: bold;
+    font-size: 60px;
+    padding: 10px 25px;
+    position: fixed; /* follows while scrolling */
+    top: 18px;
+    left: 10px; /* setting position on screen */
+}
+
+.home a { /* styling the link*/
+    color: #DFD0B8;
+    text-decoration: none; /* removes underline */
+    transition: text-shadow 0.5s; /* making the hover effect fade in rather than instant */
+    text-shadow: 6px 9px 6px #080a14; /*text shadow to seperate from other elements*/
+}
+
+.home a:hover { /* creating hover effect */
+    color: #DFD0B8;
+    text-shadow: 0px 0px 18px #dddde0; /* text glowing effect */
+}
+
+
+.divider { /* shape divider */
+    z-index: -1;
+    position: relative;
+    background-color: #DFD0B8;
+    margin: 0;
+    padding: 0;
+}
+
+.custom-shape-divider-bottom-1716322658 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-bottom-1716322658 svg { /* setting width and height of SVG */
+    position: relative;
+    display: block;
+    width: calc(280% + 1.3px);
+    height: 167px;
+}
+
+.custom-shape-divider-bottom-1716322658 .shape-fill { /* color of divider */
+    fill: #948979;
+}
+
+.aboutme { /* text and image */
+    display: flex; /* displaying content horizontally */
+    background-color: #948979;
+    background-image: linear-gradient(to bottom, #948979, #DFD0B8); /* using gradient for the background */
+    transform: translate(0, -10px); /* repositioning slightly */
+}
+
+.image { /* image container */
+    z-index: 2; /* bringing image to front */
+    padding-bottom: 25px;
+    margin-bottom: 30px;
+    padding-left: 35px; /* margin and padding to fix spacing */
+}
+
+img {
+    z-index: 2;
+    position: relative;
+    border-radius: 50px; /* rounding the corning */
+    box-shadow: 2px 2px 5px #4e4539; /* creating box shadow */
+}
+
+.intro { /* text */
+    transform: translate(0, -65px);
+    padding: 5%;
+    width: 60%;
+    word-spacing: large; /* making text more legible */
+}
+
+.intro h1 { /* heading */
+    font-family: MyFont;
+    font-weight: bold;
+    color: #153448; /* text color */
+    text-shadow: 2px 2px 7px #473d30;
+    font-size: 128px; /* size */
+    padding: 0px;
+    text-align: center; /* aligning text in the center */
+}
+
+.intro p { /* body text */
+    font-size: 36px; 
+    font-family: MyFont;
+    font-weight: normal;
+    text-shadow: 1px 1px 2px #473d30;
+    text-align: justify;
+}
+
+.down {
+    transform: translate(0, 65px); /* repositioning bottom section to move out of view when opening page */
+}
+
+.divider1 { /* curved shape divider */
+    position: relative;
+    background-color: #DFD0B8; 
+}
+
+.custom-shape-divider-top-1716326312 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg); /*flipping the SVG to mirror the one on top*/
+}
+
+.custom-shape-divider-top-1716326312 svg {
+    position: relative;
+    display: block;
+    width: calc(280% + 1.3px);
+    height: 167px;
+}
+
+.custom-shape-divider-top-1716326312 .shape-fill {
+    fill: #d9cbb2;
+}
