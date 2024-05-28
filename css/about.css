@@ -10,85 +10,197 @@
     font-weight: bold;
 }
 
-body{
-    background-color: #0e2331;
-    background-image: url(Images/Background.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+* { /* used this to remove any gaps on top and bottom of the screen */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.navbar{
+body { /* used a background image i created in figma for the background of the whole page. */ 
+    background-color: #0e2331;
+    background-image: url(Images/finalbg.png); /* to make sure the background has no repetition */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar { /* styling my navigation bar */
+    z-index: 1; /* makes sure that the nav bar is visible on top of all other elements of the page */
+    position: fixed; /* follows while scrolling */
     font-family: MyFont;
     font-weight: normal;
     font-size: x-large;
-    position: fixed;
     right: 10px;
-    top: 25px;
-    display: flex;
+    top: 25px; /* setting fixed position on screen */
+    display: flex; /* displaying elements horizontally */
 }
 
-.nav a{
+.nav a { /* styling the links within the navbar */
     color: #DFD0B8;
     padding: 10px 20px;
-    text-decoration: none;
-    transition: background-color 0.4s;
+    text-decoration: none; /* removes the underline from the link */
     display: block;
-    text-shadow: 4px 6px 5px #080a14;
+    text-shadow: 4px 6px 5px #080a14; /* subtle text shadow to add depth */
+    transition: text-shadow 0.2s; /* fading in the hover effect */
 }
 
-.nav a:hover{
-    background-color: #153448;
+.nav a:hover { /* effect while cursor hovers over the link */
     color: #DFD0B8;
+    text-shadow: 0px 0px 7px #dddde0; /* glowing effect that highlights the link that is being hovered over */
 }
 
-.home{
-    font-family: MyFont;
+.home { /* styling logo  */
+    z-index: 3; /* making sure logo is visible on top of all other elements */
+    font-family: MyFont; 
     font-weight: bold;
     font-size: 60px;
     padding: 10px 25px;
-    position: fixed;
+    position: fixed; /* follows while scrolling */
     top: 18px;
-    left: 10px;
+    left: 10px; /* setting position on screen */
 }
 
-.home a{
+.home a { /* styling the link*/
     color: #DFD0B8;
-    text-decoration: none;
-    transition: text-shadow 0.5s;
-    text-shadow: 6px 9px 6px #080a14;
+    text-decoration: none; /* removes underline */
+    transition: text-shadow 0.5s; /* making the hover effect fade in rather than instant */
+    text-shadow: 6px 9px 6px #080a14; /*text shadow to seperate from other elements*/
 }
 
-.home a:hover{
+.home a:hover { /* creating hover effect */
     color: #DFD0B8;
-    text-shadow: 0px 0px 18px #dddde0;
+    text-shadow: 0px 0px 18px #dddde0; /* text glowing effect */
 }
 
 .heading{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-85%) translateY(-50%); /* previous four lines are used to center my text in the middle of the screen  */
     font-size: 100px;
-    font-family: MyFont;
-    font-weight: bold;
+    font-family: MyFont; 
+    font-weight: bold; /* specifying the font i want to display */
     color: #e9d6b7;
     text-align: center;
-    align-items: justify;
-    padding: 35px;
-    margin: 30px;
     line-height: 145px;
     text-shadow: 0px 0px 25px #f3d6a7;
-    animation: heading 2s ease-out;
+    animation: flyIn 3s ease-out; /* using fade in animation on startup to make website more appealing */
 }
 
-@keyframes heading{
+@keyframes flyIn { /* setting keyframes for animation used for heading*/
     0% {
-        transform: translateY(200%);
+        transform: translateY(100%) translateX(-85%);
+        
     }
-    100%{
-        transform: translateY(0%);
+
+    100% {
+        transform: translateY(-50%) translateX(-85%);
     }
 }
 
 ::-webkit-scrollbar {
     display: none;
+}
+
+.landing{
+    height: 100vh;
+}
+
+.container{
+    display: flex;
+}
+
+.me{
+    display: flex;
+    justify-content: right;
+    margin: 5rem 14rem 0rem 0rem;
+    animation: floatRight 3s ease-out;
+}
+
+@keyframes floatRight {
+    0%{
+        transform: translateX(100%);
+    }
+
+    100%{
+        transform: translateX(0%);
+    }
+}
+
+.me img{
+    max-height: 100%;
+    max-width: 35%;
+    border-radius: 15px;
+}
+
+.bottom{
+    background-color: #0b1d2a;
+    height: 100vh;
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: MyFont;
+    margin-left: 6rem;
+    margin-right: 6rem;
+    justify-content: center;
+    padding-top: 6rem;
+}
+
+.text h1{
+    color: #DFD0B8;
+    text-shadow: 0px 0px 12px #dddde0;
+    font-family: MyFont;
+    font-weight: bold;
+    font-size: 186px;
+    padding-bottom: 3rem;
+}
+
+.text p{
+    color: #dddde0;
+    text-align: justify;
+    font-size: xx-large;
+    word-spacing: 0.5rem;
+}
+
+.footer{
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    font-family: MyFont;
+    background-color: #0d3048;
+    color: #DFD0B8;
+    text-align: center;
+}
+
+.socials{
+    background-color: #0b1d2a;
+    background-image: linear-gradient(to bottom, #0b1d2a, #0d3048);
+    width: 100vw;
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.sociallink{
+    list-style-type: none;
+    font-family: MyFont;
+    font-weight: bold;
+    font-size: 92px;
+    padding: 0rem 4rem 2rem 4rem;
+}
+
+.sociallink a{
+    text-decoration: none;
+    color: #DFD0B8;
+    transition: text-shadow 0.4s;
+}
+
+.sociallink a:hover{
+    text-shadow: 0px 0px 10px #dddde0;
 }

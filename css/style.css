@@ -91,7 +91,7 @@ body { /* used a background image i created in figma for the background of the w
 }
 
 .home { /* styling logo  */
-    z-index: 1; /* making sure logo is visible on top of all other elements */
+    z-index: 3; /* making sure logo is visible on top of all other elements */
     font-family: MyFont; 
     font-weight: bold;
     font-size: 60px;
@@ -113,107 +113,124 @@ body { /* used a background image i created in figma for the background of the w
     text-shadow: 0px 0px 18px #dddde0; /* text glowing effect */
 }
 
-
-.divider { /* shape divider */
-    z-index: -1;
-    position: relative;
-    background-color: #DFD0B8;
-    margin: 0;
-    padding: 0;
-}
-
-.custom-shape-divider-bottom-1716322658 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-}
-
-.custom-shape-divider-bottom-1716322658 svg { /* setting width and height of SVG */
-    position: relative;
-    display: block;
-    width: calc(280% + 1.3px);
-    height: 167px;
-}
-
-.custom-shape-divider-bottom-1716322658 .shape-fill { /* color of divider */
-    fill: #948979;
-}
-
 .aboutme { /* text and image */
-    display: flex; /* displaying content horizontally */
+    display: grid; /* displaying content horizontally */
+    grid-template-columns: 1fr 1.7fr;
     background-color: #948979;
     background-image: linear-gradient(to bottom, #948979, #DFD0B8); /* using gradient for the background */
-    transform: translate(0, -10px); /* repositioning slightly */
+     /* repositioning slightly */
+    height: 100vh;
 }
 
-.image { /* image container */
-    z-index: 2; /* bringing image to front */
-    padding-bottom: 25px;
-    margin-bottom: 30px;
-    padding-left: 35px; /* margin and padding to fix spacing */
+.aboutme-image { /* image container */
+    z-index: 1; /* bringing image to front */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin and padding to fix spacing */
 }
 
 img {
-    z-index: 2;
-    position: relative;
+    max-width: 100%;
+    max-width: 70%;
     border-radius: 50px; /* rounding the corning */
     box-shadow: 2px 2px 5px #4e4539; /* creating box shadow */
 }
 
 .intro { /* text */
-    transform: translate(0, -65px);
-    padding: 5%;
-    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 3rem;
     word-spacing: large; /* making text more legible */
 }
 
-.intro h1 { /* heading */
+.abh1 { /* heading */
     font-family: MyFont;
     font-weight: bold;
     color: #153448; /* text color */
-    text-shadow: 2px 2px 7px #473d30;
+    text-shadow: 4px 6px 11px #473d30;
     font-size: 128px; /* size */
-    padding: 0px;
     text-align: center; /* aligning text in the center */
+    transition: transform 0.3s, text-shadow 0.3s;
 }
 
-.intro p { /* body text */
-    font-size: 36px; 
+.abh1:hover {
+    transform: scale(1.2); /* makes the heading bigger when hovering over it */
+    text-shadow: 6px 8px 18px #473d30;
+}
+
+.intro a{
+    text-decoration: none;
+}
+
+.paragraph{ /* body text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px; 
     font-family: MyFont;
     font-weight: normal;
     text-shadow: 1px 1px 2px #473d30;
-    text-align: justify;
+    text-align: left;
+    text-wrap: wrap;
+    margin-top: 7%;
+    width: 85%;
 }
 
-.down {
-    transform: translate(0, 65px); /* repositioning bottom section to move out of view when opening page */
+.bottom{
+    height: 100vh;
 }
 
-.divider1 { /* curved shape divider */
-    position: relative;
-    background-color: #DFD0B8; 
+.viewprojects{
+    padding-top: 3rem;
+    display: flex;
+    font-family: MyFont;
+    font-weight: bold;
+    font-size: 100px;
+    justify-content: center;
+    color:#dfcba9;
+    text-shadow: 0px 0px 12px #eacfa3;
 }
 
-.custom-shape-divider-top-1716326312 {
-    position: absolute;
-    top: 0;
+.navlinks{
+    width: 100vw;
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.links{
+    list-style-type: none;
+    font-family: MyFont;
+    font-weight: bold;
+    font-size: 92px;
+    margin-top: 1rem;
+    padding: 6rem;
+}
+
+.links a{
+    text-decoration: none;
+    color: #DFD0B8;
+    transition: text-shadow 0.4s;
+}
+
+.links a:hover{
+    text-shadow: 0px 0px 10px #dddde0;
+}
+
+.links a:active{
+    color: #dfd0b89a;
+}
+
+.footer{
+    bottom: 0;
     left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg); /*flipping the SVG to mirror the one on top*/
-}
-
-.custom-shape-divider-top-1716326312 svg {
-    position: relative;
-    display: block;
-    width: calc(280% + 1.3px);
-    height: 167px;
-}
-
-.custom-shape-divider-top-1716326312 .shape-fill {
-    fill: #d9cbb2;
+    z-index: 3;
+    font-family: MyFont;
+    background-color: #1534486b;
+    color: #dfcba9;
+    text-align: center;
 }
